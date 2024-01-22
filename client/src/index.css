@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+:root{
+    --green:#57B847;
+    --input-bg:#EEEEEE;
+}
+
+html{
+    width: 100vw;
+    height: fit-content;
+    font-size: 10px;
+    overflow-x: hidden;
+}
