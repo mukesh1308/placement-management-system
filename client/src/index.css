@@ -14,3 +14,8 @@ html{
     font-size: 10px;
     overflow-x: hidden;
 }
+
+body{
+    width: 100%;
+    height: fit-content;
+}

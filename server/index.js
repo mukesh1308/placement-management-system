@@ -9,6 +9,8 @@ require("./DB/connect");
 const login=require("./DB/modal/login");
 const student=require("./DB/modal/student");
 
+const auth=require("./auth");
+
 
 const port=process.env.PORT || 800;
 const app=express();
@@ -44,9 +46,20 @@ app.post("/login",async(req,res)=>{
     catch(err){
         console.log(err);
         res.status(500);
-        res.send("error");
+        res.json({data:"internal server error"});
     }
 });
+
+app.get("/validate",auth,async(req,res)=>{
+    try{
+        res.status(200);
+        res.json({data:{role:req.role}});
+    }
+    catch(err){
+        res.status(500);
+        res.json({data:"internal server error"});
+    }
+})
 
 app.post("/sign",async(req,res)=>{
     try{

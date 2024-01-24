@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 import {useCookies} from 'react-cookie';
 import {createBrowserRouter,RouterProvider} from 'react-router-dom';
-import Login from "./login/Login";
-import Home from "./home/Home";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
 
 import './App.css';
 

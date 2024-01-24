@@ -1,13 +1,12 @@
 import { useContext, useRef, useState } from "react";
-import { Cookies } from "../App";
+import { Cookies } from "../../../App";
 import axios from "axios";
 import loginLogo from "./man-user-circle-icon.png";
 import userId from "./male-icon.png";
 import pwdImg from "./lock-icon.png";
-import "./login.css";
+import "./login_block.css";
 
-
-const Login=()=>{
+const LoginBlock=()=>{
     const setCookie=useContext(Cookies)[1];
     const [error,setError]=useState("");
     const user=useRef();
@@ -33,10 +32,8 @@ const Login=()=>{
             setError(err.response.data.data);
         });
     }
-    // setCookie("userData","test");
     return(
-        <div className="screen">
-            <div className="login">
+        <div className="login">
             <img className="logo" src={loginLogo} alt="icon"/>
             <div>
                 <h2>Login</h2>
@@ -53,9 +50,7 @@ const Login=()=>{
                 <span>Forgot password?</span>
             </div>
         </div>
-        
-        </div>
     )
 }
 
-export default Login;
+export default LoginBlock;

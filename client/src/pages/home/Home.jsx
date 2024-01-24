@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
-import {Cookies} from "../App";
+import {Cookies} from "../../App";
+
+import { checkValid } from "../../checkValid";
+
+
 const Home=()=>{
     const cookie=useContext(Cookies)[0];
-    useEffect(()=>{
-        if(!cookie.key){
-            window.location.href="/";
-            return;
-        }
-    })
+    const setCookie=useContext(Cookies)[1];
+    useEffect(()=>{checkValid(cookie,setCookie)},[cookie,setCookie]);
     return(
         <>
             <h1>{cookie.role}</h1>
