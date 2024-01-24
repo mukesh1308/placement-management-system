@@ -4,7 +4,6 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom';
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 
-import './App.css';
 
 const Cookies=createContext();
 function App() {

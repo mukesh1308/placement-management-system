@@ -1,12 +1,12 @@
 import { useContext, useRef, useState } from "react";
-import { Cookies } from "../../../App";
+import { Cookies } from "../../App";
 import axios from "axios";
-import loginLogo from "./man-user-circle-icon.png";
-import userId from "./male-icon.png";
-import pwdImg from "./lock-icon.png";
+import loginLogo from "../img/man-user-circle-icon.png";
+import userId from "../img/male-icon.png";
+import pwdImg from "../img/lock-icon.png";
 import "./login_block.css";
 
-const LoginBlock=()=>{
+const LoginBlock=({show})=>{
     const setCookie=useContext(Cookies)[1];
     const [error,setError]=useState("");
     const user=useRef();
@@ -47,7 +47,7 @@ const LoginBlock=()=>{
                 </div>
                 <div className="error">{error}</div>
                 <button onClick={submit} type="button">Login</button>
-                <span>Forgot password?</span>
+                <span onClick={()=>show(1)}>Forgot password?</span>
             </div>
         </div>
     )

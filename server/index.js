@@ -9,7 +9,10 @@ require("./DB/connect");
 const login=require("./DB/modal/login");
 const student=require("./DB/modal/student");
 
+
+
 const auth=require("./auth");
+const forgot=require("./router/forgot");
 
 
 const port=process.env.PORT || 800;
@@ -20,11 +23,11 @@ app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+app.use("/forgot",forgot);
+
 app.post("/login",async(req,res)=>{
     try{
         let user=await login.findOne({userID:req.body.userID});
-        // console.log(req.body.password);
-        // console.log(user);
         if(!user){
             res.status(401);
             res.json({data:"not a user"});
@@ -63,7 +66,6 @@ app.get("/validate",auth,async(req,res)=>{
 
 app.post("/sign",async(req,res)=>{
     try{
-        // console.log("got it.");
         let stud=new student({registration_no:req.body.registration_no});
         let sav=await stud.save();
         let user_login=new login({userID:req.body.userID,password:req.body.password,role:"student",user:sav._id});
