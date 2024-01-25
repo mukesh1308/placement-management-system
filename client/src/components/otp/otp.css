@@ -1,0 +1,9 @@
+.login>.back{
+    width: auto;
+    height: 2.5rem;
+    top: 2rem;
+    left: 2rem;
+    transform: translate(0px,0px);
+    cursor: pointer;
+    /* cursor:alias; */
+}

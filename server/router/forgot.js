@@ -43,7 +43,8 @@ forgot.post("/",async(req,res)=>{
         let time=(new Date()).getTime();
         let sign=jwt.sign({id:code,time:time},user.password);
         res.status(200);
-        res.send({data:{key:sign,user:user._id}});
+        let l=user_email.length;
+        res.send({data:{key:sign,user:req.body.userID,email:user_email.substring(0,2)+"***"+user_email.substring(l-12)}});
     }
     catch(err){
         console.log(err);
@@ -55,14 +56,12 @@ forgot.post("/",async(req,res)=>{
 
 forgot.post("/check",async(req,res)=>{
     try{
-        let user=await login.findById(req.headers.user);
+        let user=await login.findOne({userID:req.headers.user});
         let key=jwt.verify(req.headers.key,user.password);
-        console.log(key);
-        console.log(user);
         let diff=((new Date()).getTime() - key.time);
         if(key.id===req.body.otp && diff<=300000){
             res.status(200);
-            res.json({data:jwt.sign({user:req.headers.user},process.env.OTP)});
+            res.json({data:jwt.sign({user:user._id},process.env.OTP)});
             return;
         }
         res.status(401);

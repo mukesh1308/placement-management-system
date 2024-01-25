@@ -6,3 +6,7 @@
     align-items: center;
     background: linear-gradient(45deg,#4258D0,#C950C1);
 }
+
+.wait *,.wait{
+    cursor: wait !important;
+}

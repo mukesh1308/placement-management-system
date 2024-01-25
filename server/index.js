@@ -10,7 +10,6 @@ const login=require("./DB/modal/login");
 const student=require("./DB/modal/student");
 
 
-
 const auth=require("./auth");
 const forgot=require("./router/forgot");
 
