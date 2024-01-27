@@ -61,7 +61,7 @@ const studentSchema=new mongoose.Schema({
         default:"000000000",
         minlength:10,
         maxlength:10,
-        trim:trie,
+        trim:true,
         validate(value){
             if("[^0-9]".test(value)){
                 throw new Error("not valid phone number");
@@ -100,6 +100,24 @@ const studentSchema=new mongoose.Schema({
         min:0,
         max:100,
         default:0
+    },
+    github:{
+        type:String,
+        default:true,
+        required:true,
+        trim:true
+    },
+    linkedin:{
+        type:String,
+        default:true,
+        required:true,
+        trim:true
+    },
+    img:{
+        type:String,
+        default:"/",
+        required:true,
+        trim:true
     }
 });
 

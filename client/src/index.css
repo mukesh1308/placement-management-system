@@ -2,10 +2,17 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
 }
 :root{
     --green:#57B847;
     --input-bg:#EEEEEE;
+    --nav-bg:#27282D;
+    --nav-text:#B2B3B8;
+    --button-bg:#0094B5;
+    --nav-head:#EDEEF0;
+    --bg:#F1F4F5;
 }
 
 html{
@@ -18,4 +25,5 @@ html{
 body{
     width: 100%;
     height: fit-content;
+    background-color: var(--bg);
 }

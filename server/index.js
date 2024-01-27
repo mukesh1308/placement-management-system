@@ -12,7 +12,9 @@ const student=require("./DB/modal/student");
 
 const auth=require("./auth");
 const forgot=require("./router/forgot");
-const validate=require("./router/validate")
+const validate=require("./router/validate");
+const edit=require("./router/edit");
+const user=require("./router/user");
 
 
 const port=process.env.PORT || 800;
@@ -25,6 +27,8 @@ app.use(express.json());
 
 app.use("/",validate);
 app.use("/forgot",forgot);
+app.use("/edit",edit);
+app.use("/user",user);
 
 app.post("/sign",async(req,res)=>{
     try{

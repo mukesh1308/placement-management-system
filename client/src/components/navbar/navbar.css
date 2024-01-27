@@ -1,0 +1,63 @@
+nav{
+    width: 100%;
+    height: 6.5rem;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top:0px;
+    left:0px;
+}
+
+nav h1{
+    font-size: 3rem;
+    color: var(--nav-head);
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-left: 2rem;
+    cursor:pointer;
+}
+
+nav div{
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2rem;
+}
+nav div ul{
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4rem;
+}
+nav div ul li{
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: var(--nav-text);
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    transition: 0.2s;
+}
+nav div ul li:hover,nav div ul li:active{
+    color: var(--nav-head);
+}
+nav div button{
+    width: fit-content;
+    height: fit-content;
+    color: var(--nav-head);
+    background-color: var(--button-bg);
+    font-weight: 550;
+    text-transform: capitalize;
+    box-sizing: content-box;
+    padding: 0.8rem 2.5rem;
+    border-radius: 2rem;
+    border: none;
+    cursor:pointer;
+}

@@ -13,7 +13,7 @@
     background-color: white;
     transform: translateX(5%);
     opacity: 0;
-    transition: 0.2s;
+    transition: 0.6s;
 }
 .login>img{
     width:10rem;

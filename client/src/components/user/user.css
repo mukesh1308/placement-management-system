@@ -1,0 +1,38 @@
+.profile{
+    width: 30rem;
+    height: fit-content;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.2rem;
+    background-color: white;
+}
+.profile h3{
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    font-family: sans-serif;
+    margin: 1rem 0px;
+}
+.profile td{
+    font-size: 1.5rem;
+    padding: 0.5rem 0px;
+    padding-left: 0.5rem;
+}
+
+.profile>img{
+    width: 90%;
+    height: auto;
+}
+
+.profile table img{
+    width: auto;
+    height:2rem;
+}
+.profile .link{
+    cursor: pointer;
+    height: 2.5rem;
+    width: auto;
+    margin-right: 1rem;
+}

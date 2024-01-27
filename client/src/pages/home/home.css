@@ -1,0 +1,8 @@
+.home-cont{
+    width:100%;
+    height:fit-content;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 30rem calc(100% - 30rem);
+    gap: 1rem;
+}
