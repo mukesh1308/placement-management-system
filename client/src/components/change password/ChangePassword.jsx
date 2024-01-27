@@ -62,11 +62,11 @@ const ChangePassword=({show,keys,wait})=>{
                 <h2>Enter new Password</h2>
                 <div>
                     <img src={password} alt=""/>
-                    <input type="text" ref={pass} onChange={()=>setError("")} name="pwd" id="pwd" placeholder="Password"/>
+                    <input type="text" ref={pass} autoComplete="off" onChange={()=>setError("")} name="pwd" id="pwd" placeholder="Password"/>
                 </div>
                 <div>
                     <img src={password} alt=""/>
-                    <input type="password" ref={conform} onChange={()=>setError("")} name="conform" if="conform" placeholder="Conform Password"/>
+                    <input type="password" ref={conform} autoComplete="off" onChange={()=>setError("")} name="conform" if="conform" placeholder="Conform Password"/>
                 </div>
                 <div className="error">{error}</div>
                 <button type="button" ref={btn} onClick={()=>change()}>Change Password</button>

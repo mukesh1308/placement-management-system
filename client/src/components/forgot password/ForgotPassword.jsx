@@ -46,7 +46,7 @@ const ForgotPassword=({show,key,setKey,wait})=>{
                 <p>An otp will be send to your email address in order to verify you</p>
                 <div>
                     <img src={userId} alt=""/>
-                    <input ref={user} onChange={()=>setError("")} type="text" name="name" id="name" placeholder="User Id"/>
+                    <input ref={user} autoComplete="off" onChange={()=>setError("")} type="text" name="name" id="name" placeholder="User Id"/>
                 </div>
                 <div className="error">{error}</div>
                 <button type="button" ref={btn} onClick={()=>sendOTP()}>Send OTP</button>

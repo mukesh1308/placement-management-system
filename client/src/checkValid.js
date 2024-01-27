@@ -5,14 +5,13 @@ const checkValid=(cookie,setCookie)=>{
         window.location.href="/";
         return;
     }
-    let url="http://"+process.env.REACT_APP_API_URL+":"+process.env.REACT_APP_API_PORT+"/validate";
+    let url=process.env.REACT_APP_API_URL+"/validate";
     axios.get(url,{
         headers:{
             key:cookie.key
         }
     })
     .then((res)=>{
-        console.log(res);
         setCookie('role',res.data.data.role)
     })
     .catch((err)=>{

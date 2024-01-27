@@ -15,10 +15,7 @@ const studentSchema=new mongoose.Schema({
         trim:true
     },
     department:{
-        type:String,
-        default:"-",
-        uppercase:true,
-        trim:true,
+        type:mongoose.Schema.ObjectId
     },
     email:{
         type:String,
@@ -33,16 +30,77 @@ const studentSchema=new mongoose.Schema({
         default:new Date().getFullYear()
     },
     subject_marks:[{
-        subject_code:{
-            type:String,
-            trim:true,
-            required:true
+        subject_id:{
+            type:mongoose.Schema.ObjectId
         },
         mark:{
             type:Number,
             required:true
         }
-    }] 
+    }],
+    arrears:[{
+        subject_code:{
+            type:String,
+            required:true,
+            trim:true
+        },
+        status:{
+            type:String,
+            required:true,
+            enum:["clear","pending"]
+        }
+    }],
+    cgpa:{
+        type:Number,
+        min:0,
+        max:10,
+        default:0
+    },
+    mobile_no:{
+        type:String,
+        default:"000000000",
+        minlength:10,
+        maxlength:10,
+        trim:trie,
+        validate(value){
+            if("[^0-9]".test(value)){
+                throw new Error("not valid phone number");
+            }
+        }
+    },
+    ten_mark:{
+        type:Number,
+        min:0,
+        max:100,
+        default:0
+    },
+    twelve_mark:{
+        type:Number,
+        min:0,
+        max:100,
+        default:0
+    },
+    board_of_school:{
+        type:String,
+        lowercase:true,
+        default:"-",
+        trim:true
+    },
+    batch:{
+        type:mongoose.Schema.ObjectId,
+        default:null
+    },
+    skill_set:[{
+        type:String,
+        trim:true,
+        lowercase:true
+    }],
+    attendance:{
+        type:String,
+        min:0,
+        max:100,
+        default:0
+    }
 });
 
 const student=mongoose.model("student",studentSchema,"student");

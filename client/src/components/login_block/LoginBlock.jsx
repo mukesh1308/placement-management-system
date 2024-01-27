@@ -56,11 +56,11 @@ const LoginBlock=({show,setCursor,wait})=>{
                 <h2>Login</h2>
                 <div>
                     <img src={userId} alt=""/>
-                    <input type="text" ref={user} onChange={()=>{setError("")}} name="user" id="user" placeholder="User Id"/>
+                    <input type="text" autoComplete="off" ref={user} onChange={()=>{setError("")}} name="user" id="user" placeholder="User Id"/>
                 </div>
                 <div>
                     <img src={pwdImg} alt=""/>
-                    <input type="password" ref={pwd} onChange={()=>{setError("")}} name="pwd" id="pwd" placeholder="Password"/>
+                    <input type="password" ref={pwd} autoComplete="off" onChange={()=>{setError("")}} name="pwd" id="pwd" placeholder="Password"/>
                 </div>
                 <div className="error">{error}</div>
                 <button onClick={submit} ref={btn} type="button" >Login</button>

@@ -56,7 +56,7 @@ const OTP=({show,keys,setKey,wait})=>{
                 <p>OTP as been send to {keys.email}</p>
                 <div>
                     <img src={password} alt=""/>
-                    <input type="text" ref={otp} onChange={()=>setError("")} name="otp" id="otp" placeholder="Enter OTP"/>
+                    <input type="text" autoComplete="off" ref={otp} onChange={()=>setError("")} name="otp" id="otp" placeholder="Enter OTP"/>
                 </div>
                 <div className="error">{error}</div>
                 <button onClick={submit} ref={btn} type="button">Submit</button>

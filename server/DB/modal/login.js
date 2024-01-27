@@ -4,17 +4,24 @@ const bcrypt=require("bcrypt");
 const loginSchema= new mongoose.Schema({
     userID:{
         type:String,
-        trim:true
+        trim:true,
+        required:true
     },
     password:{
         type:String,
-        trim:true
+        trim:true,
+        default:"1234"
     },
     role:{
         type:String,
-        trim:true
+        trim:true,
+        enum:["student","admin","super admin"],
+        required:true
     },
-    user:mongoose.Schema.ObjectId
+    user:{
+        type:mongoose.Schema.ObjectId,
+        required:true
+    }
 })
 
 loginSchema.pre("save",async function(next){

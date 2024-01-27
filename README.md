@@ -6,7 +6,7 @@
 > - student must login with userid as registration number.
 > - admin should login with userid as email.
 > - forgot password for all user's which will send OTP valid for 2-min, to the respective email and let the user change password with that OTP.
-> - the admin can add student and the super admin can add both admin and super admin.
+> - the admin can add student and the super admin can add both admin and student.
 
 
 > ### Student

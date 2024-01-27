@@ -1,0 +1,7 @@
+.success-icon{
+    position: static !important;
+    width: auto !important;
+    height: 6rem !important;
+    transform: translate(0px) !important;
+    margin: 1rem 0px;
+}

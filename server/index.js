@@ -12,6 +12,7 @@ const student=require("./DB/modal/student");
 
 const auth=require("./auth");
 const forgot=require("./router/forgot");
+const validate=require("./router/validate")
 
 
 const port=process.env.PORT || 800;
@@ -22,46 +23,8 @@ app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+app.use("/",validate);
 app.use("/forgot",forgot);
-
-app.post("/login",async(req,res)=>{
-    try{
-        let user=await login.findOne({userID:req.body.userID});
-        if(!user){
-            res.status(401);
-            res.json({data:"not a user"});
-            return;
-        }
-        if(await bcrypt.compare(req.body.password,user.password)){
-            res.json({
-                data:{
-                    cookie :jwt.sign({user:user.user,role:user.role},process.env.SECURITY_KEY),
-                    role : user.role
-                }
-            });
-        }
-        else{
-            res.status(403);
-            res.json({data:"invalid password"});
-        }
-    }
-    catch(err){
-        console.log(err);
-        res.status(500);
-        res.json({data:"internal server error"});
-    }
-});
-
-app.get("/validate",auth,async(req,res)=>{
-    try{
-        res.status(200);
-        res.json({data:{role:req.role}});
-    }
-    catch(err){
-        res.status(500);
-        res.json({data:"internal server error"});
-    }
-})
 
 app.post("/sign",async(req,res)=>{
     try{
