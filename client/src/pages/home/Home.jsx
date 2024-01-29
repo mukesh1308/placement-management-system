@@ -3,6 +3,7 @@ import {Cookies} from "../../App";
 import axios from "axios";
 import Navbar from "../../components/navbar/Navbar";
 import User from "../../components/user/User";
+import StudentInfo from "../../components/student info/StudentInfo";
 
 import { checkValid } from "../../checkValid";
 import "./home.css";
@@ -30,6 +31,7 @@ const Home=()=>{
            <Navbar links={links}/>
            <div className="home-cont">
             <User user={user}/>
+            {cookie.role==="student" && <StudentInfo info={user}/>}
            </div>
         </>
     )

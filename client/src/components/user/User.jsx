@@ -5,7 +5,7 @@ import linkedinIcon from "../img/linked-in.png";
 import "./user.css";
 
 const User=({user})=>{
-    console.log(user);
+    // console.log(user);
     return(
         <div className="profile">
             <img src={`https://drive.google.com/thumbnail?id=${user.img}&sz=w1000`} alt="alt" />
@@ -19,12 +19,15 @@ const User=({user})=>{
                     <td><img src={phoneIcon} alt=""/></td>
                     <td>{user.mobile_no}</td>
                 </tr>
-                <tr>
-                    <td colSpan={2}>
-                        <img className="link" onClick={()=>window.location.href=user.github} src={githubIcon} alt=""/>
-                        <img className="link" onClick={()=>window.location.href=user.linkedin} src={linkedinIcon} alt=""/>
-                    </td>
+                <tr onClick={()=>window.location.href=user.github} className="link">
+                    <td ><img src={githubIcon} alt=""/></td>
+                    <td>github</td>
                 </tr>
+                <tr onClick={()=>window.location.href=user.linkedin} className="link">
+                    <td ><img  src={linkedinIcon} alt=""/></td>
+                    <td>linkedin</td>
+                </tr>
+                        
             </table>
         </div>
     );

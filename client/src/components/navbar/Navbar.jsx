@@ -11,7 +11,7 @@ const Navbar=({links})=>{
                 <ul>
                     {links.map((ele,i)=>{
                         return(
-                            <a href={ele.path}><li id={i}>{ele.tag}</li></a>
+                            <a href={ele.path} key={i}><li>{ele.tag}</li></a>
                         );
                     })}
                 </ul>
