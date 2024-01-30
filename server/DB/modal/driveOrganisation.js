@@ -10,11 +10,13 @@ const driveOrganisationSchema=mongoose.Schema({
     },
     companys:[{
         company:{
-            type:mongoose.Schema.ObjectId,
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"company",
             required:true
         },
         admin:{
-            type:mongoose.Schema.ObjectId,
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"admin",
             required:true
         },
         status:{

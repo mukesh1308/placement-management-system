@@ -12,11 +12,18 @@ const roundSchema=mongoose.Schema({
         required:true
     },
     company:{
-        type:mongoose.Schema.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"company",
         requied:true
     },
-    round_participantes:[mongoose.Schema.ObjectId],
-    round_selected:[mongoose.Schema.ObjectId]
+    round_participantes:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"student"
+    }],
+    round_selected:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"student"
+    }]
 });
 
 const round=mongoose.model("round",roundSchema,"round");

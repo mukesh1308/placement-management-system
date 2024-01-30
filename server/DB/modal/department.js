@@ -14,7 +14,9 @@ const departmentSchema=mongoose.Schema({
         required:true
     },
     hod:{
-        type:mongoose.Schema.ObjectId
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"admin",
+        default:null
     }
 });
 

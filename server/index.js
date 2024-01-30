@@ -8,6 +8,10 @@ const cors=require("cors");
 require("./DB/connect");
 const login=require("./DB/modal/login");
 const student=require("./DB/modal/student");
+const department=require("./DB/modal/department");
+const batch=require("./DB/modal/batch");
+const admin = require("./DB/modal/admin");
+const subject=require("./DB/modal/subject")
 
 
 const auth=require("./auth");
@@ -44,7 +48,26 @@ app.post("/sign",async(req,res)=>{
         res.status(500);
         res.json({data:"error"});
     }
-})
+});
+
+app.post("/init",async(req,res)=>{
+    try{
+        // let depart=new department({dept_name:"electrical and electronics engineering",dept_code:"EEE",});
+        // await depart.save();
+
+        // let admin_user=new admin({name:"Dr. bhavani"});
+        // await admin_user.save();
+
+        // let data=await student.find({}).populate([{path:"department",populate:{path:"hod",select:["name"]}}]);
+        let sub=new subject({subject_code:req.body.code,subject_name:req.body.name,credit:req.body.credit});
+        await sub.save();
+        res.send("done");
+    }
+    catch(err){
+        console.log(err);
+        res.send("err");
+    }
+});
 
 
 app.listen(port,()=>{

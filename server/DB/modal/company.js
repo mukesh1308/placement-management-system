@@ -31,7 +31,10 @@ const companySchema=mongoose.Schema({
             }
         }
     },
-    drives:[mongoose.Schema.ObjectId]
+    drives:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"drive"
+    }]
 })
 
 const company=mongoose.model("company",companySchema,"company");

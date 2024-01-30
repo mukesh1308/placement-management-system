@@ -21,7 +21,8 @@ const batchSchema=mongoose.Schema({
             lowercase:true
         },
         subject_teacher:{
-            type:mongoose.Schema.ObjectId
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"admin"
         }
     }]
 })

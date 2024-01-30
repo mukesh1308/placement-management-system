@@ -15,10 +15,13 @@ const adminShema=mongoose.Schema({
         default:"xyz@abc.com"
     },
     batchs:[{
-        type:mongoose.Schema.ObjectId
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"batch"
     }],
     department:{
-        type:mongoose.Schema.ObjectId
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"department",
+        default:null
     }
 });
 

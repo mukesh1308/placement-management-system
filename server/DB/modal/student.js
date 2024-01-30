@@ -15,7 +15,8 @@ const studentSchema=new mongoose.Schema({
         trim:true
     },
     department:{
-        type:mongoose.Schema.ObjectId
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"department"
     },
     email:{
         type:String,
@@ -31,23 +32,24 @@ const studentSchema=new mongoose.Schema({
     },
     subject_marks:[{
         subject_id:{
-            type:mongoose.Schema.ObjectId
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"subject"
         },
-        mark:{
-            type:Number,
+        grade:{
+            type:String,
             required:true
         }
     }],
     arrears:[{
-        subject_code:{
-            type:String,
-            required:true,
-            trim:true
+        subject_id:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"subject"
         },
         status:{
             type:String,
             required:true,
-            enum:["clear","pending"]
+            enum:["clear","pending"],
+            default:"pending"
         }
     }],
     cgpa:{
@@ -87,7 +89,8 @@ const studentSchema=new mongoose.Schema({
         trim:true
     },
     batch:{
-        type:mongoose.Schema.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"batch",
         default:null
     },
     skill_set:[{
