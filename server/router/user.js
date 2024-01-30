@@ -10,7 +10,12 @@ user.get("/",auth,async(req,res)=>{
     try{
         let data={};
         if(req.role==="student"){
-            data=await student.findById(req.user);
+            data=await student.findById(req.user).populate([
+                {path:"department",populate:{path:"hod",select:["name"]}},
+                {path:"subject_marks.subject"},
+                {path:"arrears.subject"},
+                {path:"batch",populate:[{path:"batch_mentor",select:["name"]},{path:"subject.subject_teacher",select:["name"]}]}
+            ]);
         }
         else{
             data=await admin.findById(req.user);

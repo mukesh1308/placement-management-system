@@ -59,9 +59,19 @@ app.post("/init",async(req,res)=>{
         // await admin_user.save();
 
         // let data=await student.find({}).populate([{path:"department",populate:{path:"hod",select:["name"]}}]);
-        let sub=new subject({subject_code:req.body.code,subject_name:req.body.name,credit:req.body.credit});
-        await sub.save();
-        res.send("done");
+        // let sub=new subject({subject_code:req.body.code,subject_name:req.body.name,credit:req.body.credit});
+        // await sub.save();
+        let data=await student.find({}).populate([
+            {path:"department",populate:{path:"hod",select:["name"]}},
+            {path:"subject_marks.subject"},
+            {path:"arrears.subject"},
+            {path:"batch",populate:[{path:"batch_mentor",select:["name"]},{path:"subject.subject_teacher",select:["name"]}]}
+        ]);
+        res.json(data);
+
+        // let new_batch=new batch({batch_no:2});
+        // await new_batch.save();
+        // res.send("done");
     }
     catch(err){
         console.log(err);

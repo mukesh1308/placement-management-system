@@ -31,7 +31,7 @@ const studentSchema=new mongoose.Schema({
         default:new Date().getFullYear()
     },
     subject_marks:[{
-        subject_id:{
+        subject:{
             type:mongoose.Schema.Types.ObjectId,
             ref:"subject"
         },
@@ -41,7 +41,7 @@ const studentSchema=new mongoose.Schema({
         }
     }],
     arrears:[{
-        subject_id:{
+        subject:{
             type:mongoose.Schema.Types.ObjectId,
             ref:"subject"
         },

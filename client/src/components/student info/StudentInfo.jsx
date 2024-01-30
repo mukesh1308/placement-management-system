@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BasicInfo from "../basic info/BasicInfo";
 import AcademicInfo from "../academic info/AcademicInfo";
+import BatchInfo from "../batch info/BatchInfo";
 import "./student_info.css";
 
 const StudentInfo=({info})=>{
@@ -27,6 +28,7 @@ const StudentInfo=({info})=>{
             </ul>
             {tog===0 && <BasicInfo info={info}/>}
             {tog===1 && <AcademicInfo info={info}/>}
+            {tog===2 && <BatchInfo info={info.batch}/>}
         </div>
     );
 }

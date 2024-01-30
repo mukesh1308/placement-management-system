@@ -12,7 +12,9 @@ const batchSchema=mongoose.Schema({
         default:new Date().getFullYear()
     },
     batch_mentor:{
-        type:mongoose.Schema.ObjectId
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"admin",
+        default:null
     },
     subject:[{
         subject_name:{
