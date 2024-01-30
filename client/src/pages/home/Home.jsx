@@ -11,7 +11,7 @@ import "./home.css";
 const Home=()=>{
     const cookie=useContext(Cookies)[0];
     const setCookie=useContext(Cookies)[1];
-    const [user,setUser]=useState({});
+    const [user,setUser]=useState(null);
     useEffect(()=>{
         checkValid(cookie,setCookie);
         let url=process.env.REACT_APP_API_URL+"/user"
@@ -30,8 +30,8 @@ const Home=()=>{
         <>
            <Navbar links={links}/>
            <div className="home-cont">
-            <User user={user}/>
-            {cookie.role==="student" && <StudentInfo info={user}/>}
+            {user && <User user={user}/>}
+            {user && cookie.role==="student" && <StudentInfo info={user}/>}
            </div>
         </>
     )

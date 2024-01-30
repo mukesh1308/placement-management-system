@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import BasicInfo from "../basic info/BasicInfo";
+import AcademicInfo from "../academic info/AcademicInfo";
 import "./student_info.css";
 
 const StudentInfo=({info})=>{
@@ -20,30 +22,11 @@ const StudentInfo=({info})=>{
             <ul className="select-bar">
                 <li id="0">basic</li>
                 <li id="1">academic</li>
+                <li id="2">Batch</li>
                 <span className="marker"></span>
             </ul>
-            {tog===0 && <table>
-                <tr>
-                    <td>name</td>
-                    <td>:</td>
-                    <td>{info.name}</td>
-                </tr>
-                <tr>
-                    <td>registration no.</td>
-                    <td>:</td>
-                    <td>{info.registration_no}</td>
-                </tr>
-                <tr>
-                    <td>department</td>
-                    <td>:</td>
-                    <td>{info.department}</td>
-                </tr>
-                <tr>
-                    <td>HOD</td>
-                    <td>:</td>
-                    <td>{info.hod}</td>
-                </tr>
-            </table>}
+            {tog===0 && <BasicInfo info={info}/>}
+            {tog===1 && <AcademicInfo info={info}/>}
         </div>
     );
 }
