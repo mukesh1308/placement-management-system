@@ -26,12 +26,12 @@ const BasicInfo=({info})=>{
                     <tr>
                         <td>department</td>
                         <td>:</td>
-                        <td>{info.department.dept_name}</td>
+                        <td>{info.department?info.department.dept_name:"-"}</td>
                     </tr>
                     <tr>
                         <td>HOD</td>
                         <td>:</td>
-                        <td>{info.department.hod.name}</td>
+                        <td>{info.department?info.department.hod.name:"-"}</td>
                     </tr>
                     <tr>
                         <td>academic year</td>
@@ -46,7 +46,7 @@ const BasicInfo=({info})=>{
                     <tr>
                         <td>batch</td>
                         <td>:</td>
-                        <td>{info.batch.batch_no}</td>
+                        <td>{info.batch?info.batch.batch_no:"-"}</td>
                     </tr>    
                 </tbody>
                 

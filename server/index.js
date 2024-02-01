@@ -12,13 +12,18 @@ const department=require("./DB/modal/department");
 const batch=require("./DB/modal/batch");
 const admin = require("./DB/modal/admin");
 const subject=require("./DB/modal/subject")
+const company=require("./DB/modal/company");
+const drive=require("./DB/modal/drive");
+const round=require("./DB/modal/round");
+const { default: mongoose } = require("mongoose");
 
 
-const auth=require("./auth");
+
 const forgot=require("./router/forgot");
 const validate=require("./router/validate");
 const edit=require("./router/edit");
 const user=require("./router/user");
+const comp=require("./router/comp");
 
 
 const port=process.env.PORT || 800;
@@ -33,6 +38,7 @@ app.use("/",validate);
 app.use("/forgot",forgot);
 app.use("/edit",edit);
 app.use("/user",user);
+app.use("/company",comp);
 
 app.post("/sign",async(req,res)=>{
     try{
@@ -61,17 +67,27 @@ app.post("/init",async(req,res)=>{
         // let data=await student.find({}).populate([{path:"department",populate:{path:"hod",select:["name"]}}]);
         // let sub=new subject({subject_code:req.body.code,subject_name:req.body.name,credit:req.body.credit});
         // await sub.save();
-        let data=await student.find({}).populate([
-            {path:"department",populate:{path:"hod",select:["name"]}},
-            {path:"subject_marks.subject"},
-            {path:"arrears.subject"},
-            {path:"batch",populate:[{path:"batch_mentor",select:["name"]},{path:"subject.subject_teacher",select:["name"]}]}
-        ]);
-        res.json(data);
+        // let data=await student.find({}).populate([
+        //     {path:"department",populate:{path:"hod",select:["name"]}},
+        //     {path:"subject_marks.subject"},
+        //     {path:"arrears.subject"},
+        //     {path:"batch",populate:[{path:"batch_mentor",select:["name"]},{path:"subject.subject_teacher",select:["name"]}]}
+        // ]);
+        // res.json(data);
 
         // let new_batch=new batch({batch_no:2});
         // await new_batch.save();
         // res.send("done");
+
+        // let new_company=new company({company_name:"google"});
+        // await new_company.save();
+
+        // let new_drive=new drive({academic_year:2023});
+        // await new_drive.save();
+
+        let new_round=new round({round_name:"HR round",round_date:new Date("2023-02-18 GMT+0530")});
+        await new_round.save();
+        res.send("done");
     }
     catch(err){
         console.log(err);

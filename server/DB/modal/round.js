@@ -11,10 +11,15 @@ const roundSchema=mongoose.Schema({
         type:Date,
         required:true
     },
-    company:{
+    round_description:{
+        type:String,
+        lowercase:true,
+        default:"-"
+    },
+    deive:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"company",
-        requied:true
+        ref:"drive",
+        default:null
     },
     round_participantes:[{
         type:mongoose.Schema.Types.ObjectId,

@@ -21,12 +21,13 @@ const companySchema=mongoose.Schema({
     },
     HR_mobile_no:{
         type:String,
-        default:"000000000",
+        default:"0000000000",
         minlength:10,
         maxlength:10,
-        trim:trie,
+        trim:true,
         validate(value){
-            if("[^0-9]".test(value)){
+            let pattern=/[^0-9]/;
+            if(pattern.test(value)){
                 throw new Error("not valid phone number");
             }
         }

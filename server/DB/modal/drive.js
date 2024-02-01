@@ -9,12 +9,12 @@ const driveSchema=mongoose.Schema({
     },
     package:{
         type:Number,
-        default:NaN
+        default:0
     },
     company:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"company",
-        required:true
+        default:null
     },
     rounds:[{
         type:mongoose.Schema.Types.ObjectId,

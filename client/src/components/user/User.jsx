@@ -15,18 +15,18 @@ const User=({user})=>{
                     <td><img src={emailIcon} alt=""/></td>
                     <td>{user.email}</td>
                 </tr>
-                <tr>
+                {user.mobile_no && <tr>
                     <td><img src={phoneIcon} alt=""/></td>
                     <td>{user.mobile_no}</td>
-                </tr>
-                <tr onClick={()=>window.location.href=user.github} className="link">
+                </tr>}
+                {user.github && <tr onClick={()=>window.location.href=user.github} className="link">
                     <td ><img src={githubIcon} alt=""/></td>
                     <td>github</td>
-                </tr>
-                <tr onClick={()=>window.location.href=user.linkedin} className="link">
+                </tr>}
+                {user.linkedin &&<tr onClick={()=>window.location.href=user.linkedin} className="link">
                     <td ><img  src={linkedinIcon} alt=""/></td>
                     <td>linkedin</td>
-                </tr>
+                </tr>}
                         
             </table>
         </div>
