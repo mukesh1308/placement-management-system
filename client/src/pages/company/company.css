@@ -3,3 +3,18 @@
     height: fit-content;
     padding: 1rem;
 }
+
+.conpany-info{
+    width: 100%;
+    height: fit-content;
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+.conpany-info tr td:first-child{
+    text-transform: capitalize;
+}
+.conpany-info td{
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+}

@@ -1,0 +1,42 @@
+.drive-cont{
+    width: 100%;
+    height: fit-content;
+    padding:0px 2rem;
+}
+
+.drive-cont-head div{
+    width: 100%;
+    height: 6rem;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+.drive-cont-head div table{
+    margin-left: 2rem;
+}
+.drive-cont-head div td{
+    padding-right: 1.5rem;
+}
+.drive-cont-panel ul{
+    padding:0rem 1rem 1rem 1rem;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+.drive-cont-panel li{
+    padding: 1rem 0px;
+    padding-left: 1rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    position: relative;
+}
+.drive-cont-panel li td{
+    padding-right: 1.5rem;
+}
+.drive-cont-panel li .date{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
